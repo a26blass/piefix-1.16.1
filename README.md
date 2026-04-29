@@ -3,15 +3,20 @@
 ## About
 This mod allows you to resize and reposition the pie chart in Minecraft 1.16.1. This version has a flaw where the debug chart is rendered directly onto the framebuffer with a constant pixel radius and fixed offsets. Since the size of the framebuffer depends on screen resolution, the pie chart appears very small for high resolution screens.
 
-Here are the faulty lines of code. This is a snippet from the function `drawProfilerResults()`:
+Here are the faulty lines of code. This is a snippet from the function `drawProfilerResults()`, which is a private method on `net.minecraft.client.MinecraftClient`:
 
 ```java
-// ...
+...
+// Setup OpenGL ortho projection matrix
 RenderSystem.ortho(0.0, (double)this.window.getFramebufferWidth(), (double)this.window.getFramebufferHeight(), 0.0, 1000.0, 3000.0);
-// ...
+...
+// Chart radius
 int i = 160;
+// Chart center x
 int j = this.window.getFramebufferWidth() - 160 - 10;
+// Chart center y
 int k = this.window.getFramebufferHeight() - 320;
+...
 ```
 
 Here they incorrectly use `getFramebufferWidth/Height()` instead of `getScaledWidth/Height()`, which incorporates GUI scale.
@@ -54,4 +59,4 @@ Here's an example config that works well for me on a Macbook Retina Display:
 Changes to the config are reflected upon exiting and re-launching the game.
 
 ## Installation
-The source code is automatically compiled and added as a release via github actions. Navigate to the releases page, and download the .jar file. Then drop the .jar into your mods folder.
+The source code is automatically compiled and added as a release via github actions. Navigate to the releases page, and download the .jar file. Then drop the .jar into your mods folder. Launch the game once to generate the config file. Lastly close the game, modify the config and relaunch.
