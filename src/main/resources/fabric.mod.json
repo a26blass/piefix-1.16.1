@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "piefix",
+	"version": "${version}",
+	"name": "PieFix",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/piefix/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"vldy.piechartfix.PieFix"
+		]
+	},
+	"mixins": [
+		"piefix.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.12.2",
+		"minecraft": "~1.16.1",
+		"java": ">=8"
+	}
+}

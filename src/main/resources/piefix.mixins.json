@@ -1,0 +1,12 @@
+{
+    "required": true,
+    "package": "vldy.piechartfix.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "refmap": "piefix.refmap.json",
+    "client": [
+        "MinecraftClientMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
