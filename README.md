@@ -44,4 +44,14 @@ OffsetY (int) is respective to the bottom of the screen. By default (with `scale
 
 Tip: At higher scales, the chart naturally drifts toward the screen center because of how Minecraft's chart renders. Use OffsetX/OffsetY to nudge it back to a position you like.
 
+Here's an example config that works well for me on a Macbook Retina Display:
+```
+2.3
+0
+-100
+```
+
 Changes to the config are reflected upon exiting and re-launching the game.
+
+## Installation
+The source code is automatically compiled and added as a release via github actions. Navigate to the releases page, and download the .jar file. Then drop the .jar into your mods folder.
